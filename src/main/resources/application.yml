@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: padyak-rescue
+  datasource:
+    url: jdbc:postgresql://localhost:5432/padyak_rescue
+    username: padyak
+    password: padyak
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    # NOTE: Hibernate 6 + hibernate-spatial no longer requires a PostGIS-specific dialect class.
+    # Dialect is auto-detected from the JDBC connection; hardcoding the old PostgisDialect breaks startup.
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

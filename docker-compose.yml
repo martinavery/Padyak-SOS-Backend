@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  db:
+    image: postgis/postgis:15-3.3
+    container_name: padyak_rescue_db
+    environment:
+      - POSTGRES_USER=padyak
+      - POSTGRES_PASSWORD=padyak
+      - POSTGRES_DB=padyak_rescue
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
